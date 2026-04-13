@@ -26,5 +26,6 @@ build/
 *.log
 .env
 
-# Local output
-local-out/
+# Local output (but keep VPN result files)
+local-out/*
+!local-out/.gitkeep

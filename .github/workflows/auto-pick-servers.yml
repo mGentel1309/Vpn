@@ -53,7 +53,7 @@ jobs:
             exit 0
           fi
           
-          git add top-10.txt vless*.txt README.md
+          git add vpn.txt top-10.txt vless*.txt README.md
           git commit -m "🤖 Auto: Update fastest servers ($(date '+%Y-%m-%d %H:%M:%S'))" || true
           git push origin main || echo "Push might have failed, but workflow complete"
       
@@ -61,9 +61,9 @@ jobs:
         if: always()
         run: |
           echo "✅ Workflow completed!"
-          if [ -f "top-10.txt" ]; then
+          if [ -f "vpn.txt" ]; then
             echo ""
-            echo "📋 Top 10 servers:"
-            wc -l top-10.txt
-            head -3 top-10.txt
+            echo "📋 Top servers ready in vpn.txt:"
+            wc -l vpn.txt
+            head -3 vpn.txt
           fi

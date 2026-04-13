@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ⚡ FAST MODE - Get top servers in ~2-3 minutes
+# ⚡ FAST MODE - Get top servers in ~2-3 minutes (with strict TLS validation)
 # Usage: ./tools/fetch-and-pick-fast.sh
 
 set -euo pipefail
@@ -8,7 +8,7 @@ START_TIME=$(date +%s)
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
-echo "⚡ FAST MODE: Finding top 5 fastest servers (~2-3 min)..."
+echo "⚡ FAST MODE: Finding top 5 fastest + verified servers (~2-3 min)..."
 echo ""
 
 TRIES=1 \

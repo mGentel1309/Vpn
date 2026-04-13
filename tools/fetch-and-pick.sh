@@ -42,7 +42,7 @@ run_picker() {
     "--timeout" "$TIMEOUT"
     "--concurrency" "$CONCURRENCY"
     "--out-dir" "$OUT_DIR"
-    "--use-icmp"
+    "--verify-tls"
     "--max-cv" "$max_cv"
     "--max-ping-spread" "$max_ping_spread"
   )
@@ -68,15 +68,16 @@ if [ "$current_top_count" -lt "$TOP" ] && [ "$TOP" -gt 0 ] && [ "${RETRY:-1}" = 
   current_top_count=$(count_top)
 fi
 
-# Copy results to top-10.txt
+# Copy results to vpn.txt (main result file) and top-10.txt (backup)
 if [ -f "$OUT_DIR/top.txt" ] && [ "$current_top_count" -gt 0 ]; then
   echo ""
   echo "✅ Found $current_top_count fastest servers!"
+  cp "$OUT_DIR/top.txt" "$ROOT_DIR/vpn.txt"
   cp "$OUT_DIR/top.txt" "$ROOT_DIR/top-10.txt"
-  echo "📁 Results saved to: top-10.txt"
+  echo "📁 Results saved to: vpn.txt (primary) and top-10.txt (backup)"
   echo ""
   echo "🔝 Top servers:"
-  head -3 "$ROOT_DIR/top-10.txt" | sed 's/^/   /'
+  head -3 "$ROOT_DIR/vpn.txt" | sed 's/^/   /'
   echo "   ..."
 else
   echo "❌ No servers found. Check your configs and network connection."
@@ -87,7 +88,7 @@ fi
 echo ""
 echo "💾 Committing changes to git..."
 cd "$ROOT_DIR"
-git add vless*.txt top-10.txt README.md 2>/dev/null || true
+git add vless*.txt vpn.txt top-10.txt README.md 2>/dev/null || true
 if git diff --cached --quiet; then
   echo "ℹ️  No changes to commit"
 else
