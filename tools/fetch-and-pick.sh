@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+START_TIME=$(date +%s)
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
@@ -11,21 +12,15 @@ git checkout upstream/main -- vless*.txt README.md 2>/dev/null || true
 echo "📋 Available config files:"
 ls -lh vless*.txt
 
-# Configuration parameters
-TRIES="${TRIES:-3}"
-MIN_SUCCESSES="${MIN_SUCCESSES:-}"
+# Configuration parameters (optimized for speed)
+TRIES="${TRIES:-1}"
+MIN_SUCCESSES="${MIN_SUCCESSES:-1}"
 TOP="${TOP:-10}"
 SUBSCRIPTION="${SUBSCRIPTION:-vless_universal.txt}"
 OUT_DIR="${OUT_DIR:-local-out}"
-
-# Auto-adjust min-successes
-if [ -z "$MIN_SUCCESSES" ]; then
-  if [ "$TRIES" -eq 1 ]; then
-    MIN_SUCCESSES=1
-  else
-    MIN_SUCCESSES=2
-  fi
-fi
+LIMIT="${LIMIT:-150}"
+TIMEOUT="${TIMEOUT:-2.0}"
+CONCURRENCY="${CONCURRENCY:-100}"
 
 # Create output directory
 mkdir -p "$OUT_DIR"
@@ -40,12 +35,12 @@ run_picker() {
   local args=(
     "--subscription" "$SUBSCRIPTION"
     "--top" "$TOP"
-    "--limit" "${LIMIT:-500}"
+    "--limit" "$LIMIT"
     "--tries" "$TRIES"
     "--min-successes" "$MIN_SUCCESSES"
     "--schemes" "${SCHEMES:-vless}"
-    "--timeout" "${TIMEOUT:-3.0}"
-    "--concurrency" "${CONCURRENCY:-20}"
+    "--timeout" "$TIMEOUT"
+    "--concurrency" "$CONCURRENCY"
     "--out-dir" "$OUT_DIR"
     "--use-icmp"
     "--max-cv" "$max_cv"
@@ -66,15 +61,10 @@ count_top() {
 
 current_top_count=$(count_top)
 
-if [ "$current_top_count" -lt "$TOP" ] && [ "$TOP" -gt 0 ]; then
+# Only retry if configured for more strict testing
+if [ "$current_top_count" -lt "$TOP" ] && [ "$TOP" -gt 0 ] && [ "${RETRY:-1}" = "1" ]; then
   echo "⚠️  Found only $current_top_count of $TOP servers, relaxing filters..."
   run_picker "30" "4.0"
-  current_top_count=$(count_top)
-fi
-
-if [ "$current_top_count" -lt "$TOP" ] && [ "$TOP" -gt 0 ]; then
-  echo "⚠️  Found only $current_top_count of $TOP servers, relaxing again..."
-  run_picker "40" "8.0"
   current_top_count=$(count_top)
 fi
 
@@ -110,5 +100,8 @@ echo "🚀 Pushing to GitHub..."
 git pull --no-rebase origin main || true
 git push origin main || echo "⚠️  Push failed (conflicts?), manual review needed"
 
+END_TIME=$(date +%s)
+DURATION=$((END_TIME - START_TIME))
 echo ""
-echo "✨ Done! Check https://github.com/mGentel1309/Vpn/blob/main/top-10.txt"
+echo "✨ Done! Completed in ${DURATION}s"
+echo "📊 Results: https://github.com/mGentel1309/Vpn/blob/main/top-10.txt"
