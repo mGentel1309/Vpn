@@ -1,0 +1,93 @@
+From https://github.com/igareck/vpn-configs-for-russia
+   dde5e3eb..a2c6af08  main       -> origin/main
+From https://github.com/igareck/vpn-configs-for-russia
+   a2c6af08..eb1a29a7  main       -> origin/main
+Fatal error on SSL transport
+protocol: <asyncio.sslproto.SSLProtocol object at 0x1053cbf70>
+transport: <_SelectorSocketTransport closing fd=13>
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/selector_events.py", line 918, in write
+    n = self._sock.send(data)
+OSError: [Errno 9] Bad file descriptor
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/sslproto.py", line 684, in _process_write_backlog
+    self._transport.write(chunk)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/selector_events.py", line 924, in write
+    self._fatal_error(exc, 'Fatal write error on socket transport')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/selector_events.py", line 719, in _fatal_error
+    self._force_close(exc)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/selector_events.py", line 731, in _force_close
+    self._loop.call_soon(self._call_connection_lost, exc)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 746, in call_soon
+    self._check_closed()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 510, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+fatal: unable to access 'https://github.com/mGentel1309/vpn-configs-for-russia.git/': Could not resolve host: github.com
+fatal: unable to access 'https://github.com/igareck/vpn-configs-for-russia.git/': Could not resolve host: github.com
+fatal: unable to access 'https://github.com/igareck/vpn-configs-for-russia.git/': Recv failure: Connection reset by peer
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+   e4bb4ae7..346bc995  main       -> upstream/main
+No reachable configs found (TCP connect).
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+No reachable configs found (TCP connect).
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+   326fcf0e..c878c76d  main       -> upstream/main
+No reachable configs found (TCP connect).
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+No reachable configs found (TCP connect).
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+   a3de679d..3d1cc855  main       -> upstream/main
+From https://github.com/mGentel1309/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/mGentel1309/vpn-configs-for-russia.git/'
+fatal: unable to access 'https://github.com/igareck/vpn-configs-for-russia.git/': Could not resolve host: github.com
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+   ef6af873..1f5aec40  main       -> upstream/main
+From https://github.com/mGentel1309/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+To https://github.com/mGentel1309/vpn-configs-for-russia.git
+   e5c1ea34..b405e6b1  main -> main
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+   1f5aec40..fa28148f  main       -> upstream/main
+No reachable configs found (TCP connect).
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+From https://github.com/mGentel1309/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+To https://github.com/mGentel1309/vpn-configs-for-russia.git
+   b405e6b1..1bf889e4  main -> main
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+   6564d342..10dc8c66  main       -> upstream/main
+From https://github.com/mGentel1309/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+To https://github.com/mGentel1309/vpn-configs-for-russia.git
+   1bf889e4..ab4054f3  main -> main
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+   10dc8c66..55ebfdbf  main       -> upstream/main
+From https://github.com/mGentel1309/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+To https://github.com/mGentel1309/vpn-configs-for-russia.git
+   ab4054f3..34f3214e  main -> main
+From https://github.com/igareck/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+   55ebfdbf..b2ff4d0d  main       -> upstream/main
+From https://github.com/mGentel1309/vpn-configs-for-russia
+ * branch              main       -> FETCH_HEAD
+To https://github.com/mGentel1309/vpn-configs-for-russia.git
+   34f3214e..284943ce  main -> main
