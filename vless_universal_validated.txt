@@ -1,1 +1,2 @@
-vless://7cd8b73d-5f53-4521-b690-9eec798970b6@51.250.22.210:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=random&sni=id.x5.ru&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&sid=111111#%F0%9F%87%B7%F0%9F%87%BA%20Selectel%20%E2%80%94%20%2340
+vless://7cd8b73d-5f53-4521-b690-9eec798970b6@84.201.152.230:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=random&sni=5post-gate.x5.ru&pbk=XguLRlc-hWqFhf8-KTxtCE434F6e4Hiqoc5cTBpLxnE&sid=111111#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands%20%E2%80%94%20%23260
+vless://75807638-6f19-01f4-ae08-38492ee85c88@178.72.181.26:52006?flow=xtls-rprx-vision&encryption=none&type=tcp&security=tls&fp=chrome#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20%E2%80%94%20%23100
